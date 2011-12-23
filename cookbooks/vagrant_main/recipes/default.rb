@@ -27,3 +27,4 @@
 require_recipe 'ack'
 require_recipe 'git'
 require_recipe 'mercurial'
+require_recipe 'tmux'
