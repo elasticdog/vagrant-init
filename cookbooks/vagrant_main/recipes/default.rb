@@ -24,5 +24,6 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+require_recipe 'ack'
 require_recipe 'git'
 require_recipe 'mercurial'
