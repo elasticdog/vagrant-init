@@ -1,0 +1,63 @@
+{
+  "name": "ack",
+  "description": "Installs ack, a utility for quickly performing recursive searches of directory trees of text files (such as source code).",
+  "long_description": "Description\n===========\n\nInstalls ack, a utility for quickly performing recursive searches of directory\ntrees of text files (such as source code).\n\nOn Debian-based platforms (e.g. Ubuntu), it creates a symlink in /usr/local/bin\ncalled 'ack' so you don't have to type 'ack-grep' to run it. You can change this\nbehavior by setting the [:ack][:symlink_as] attribute.\n\nRequirements\n============\n\n## Platforms:\n\n* Debian\n* Ubuntu\n* Red Hat/CentOS/Fedora\n* ArchLinux\n\nAttributes\n==========\n\n* `node[:ack][:symlink_as]` - What to symlink to /usr/bin/ack-grep. Debian/Ubuntu only.\n",
+  "maintainer": "Wes Morgan",
+  "maintainer_email": "cap10morgan@gmail.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "arch": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "ack": {
+      "display_name": "ack",
+      "description": "Hash of ack attributes",
+      "type": "hash",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "ack/symlink_as": {
+      "display_name": "Symlink source path",
+      "description": "What to symlink to /usr/bin/ack-grep on Debian/Ubuntu systems",
+      "default": "/usr/local/bin/ack",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "default": "Installs ack"
+  },
+  "version": "1.0.0"
+}
