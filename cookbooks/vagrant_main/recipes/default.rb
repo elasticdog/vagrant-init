@@ -26,6 +26,7 @@
 
 require_recipe 'ack'
 require_recipe 'git'
+require_recipe 'htop'
 require_recipe 'mercurial'
 require_recipe 'tmux'
 require_recipe 'zsh'
