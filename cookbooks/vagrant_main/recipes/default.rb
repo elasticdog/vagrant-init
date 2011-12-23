@@ -25,3 +25,4 @@
 #
 
 require_recipe 'git'
+require_recipe 'mercurial'
