@@ -24,10 +24,10 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-require_recipe 'ack'
-require_recipe 'git'
-require_recipe 'htop'
-require_recipe 'mercurial'
-require_recipe 'tmux'
-require_recipe 'vim'
-require_recipe 'zsh'
+include_recipe 'ack'
+include_recipe 'git'
+include_recipe 'htop'
+include_recipe 'mercurial'
+include_recipe 'tmux'
+include_recipe 'vim'
+include_recipe 'zsh'
