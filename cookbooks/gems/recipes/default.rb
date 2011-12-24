@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: vagrant_main
+# Cookbook Name:: gems
 # Recipe:: default
 #
 # Copyright 2011, Aaron Bull Schaefer
@@ -24,12 +24,10 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-include_recipe 'ack'
-include_recipe 'dotfiles'
-include_recipe 'gems'
-include_recipe 'git'
-include_recipe 'htop'
-include_recipe 'mercurial'
-include_recipe 'tmux'
-include_recipe 'vim'
-include_recipe 'zsh'
+gem_package 'bundler' do
+  options '--no-ri --no-rdoc'
+end
+
+gem_package 'rake' do
+  options '--no-ri --no-rdoc'
+end
