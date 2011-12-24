@@ -23,3 +23,14 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
+
+node.set_unless['dotfiles']['enable_submodules'] = false
+
+git '/home/vagrant/.dotfiles' do
+  repository node['dotfiles']['repository']
+  reference 'master'
+  action :sync
+  user 'vagrant'
+  group 'vagrant'
+  enable_submodules node['dotfiles']['enable_submodules']
+end
