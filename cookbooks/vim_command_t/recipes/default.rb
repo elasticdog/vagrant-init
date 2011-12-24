@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: dotfiles
+# Cookbook Name:: vim_command_t
 # Recipe:: default
 #
 # Copyright 2011, Aaron Bull Schaefer
@@ -24,33 +24,14 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-include_recipe 'git'
-include_recipe 'zsh'
+include_recipe 'dotfiles'
+include_recipe 'gems'
+include_recipe 'vim'
 
-node.set_unless['dotfiles']['enable_submodules'] = false
-node.set_unless['dotfiles']['shell'] = '/bin/zsh'
-
-git 'dotfiles' do
-  destination '/home/vagrant/.dotfiles'
-  repository node['dotfiles']['repository']
-  reference 'master'
-  action :sync
+execute 'rake make' do
+  cwd '/home/vagrant/.vim/bundle/command-t'
   user 'vagrant'
   group 'vagrant'
-  enable_submodules node['dotfiles']['enable_submodules']
-end
-
-user 'vagrant' do
-  action :modify
-  shell node['dotfiles']['shell']
-end
-
-execute 'install-links' do
-  command '/home/vagrant/.dotfiles/install-links.sh'
-  user 'vagrant'
-  group 'vagrant'
-  environment ({'HOME' => '/home/vagrant'})
   action :nothing
   subscribes :run, resources(:git => 'dotfiles')
-  only_if { File.exists?('/home/vagrant/.dotfiles/install-links.sh') }
 end
