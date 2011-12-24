@@ -24,10 +24,8 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-gem_package 'bundler' do
-  options '--no-ri --no-rdoc'
-end
-
-gem_package 'rake' do
-  options '--no-ri --no-rdoc'
+%w{ bundler rake }.each do |gem|
+  gem_package gem do
+    options '--no-ri --no-rdoc'
+  end
 end

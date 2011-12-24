@@ -4,12 +4,7 @@ license          "MIT"
 description      "Installs/Configures vagrant_main"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.0.1"
-depends          "ack"
-depends          "dotfiles"
-depends          "gems"
-depends          "git"
-depends          "htop"
-depends          "mercurial"
-depends          "tmux"
-depends          "vim"
-depends          "zsh"
+
+%w{ ack dotfiles gems git htop mercurial tmux vim zsh }.each do |cookbook|
+  depends cookbook
+end
