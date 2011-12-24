@@ -25,12 +25,29 @@
 #
 
 node.set_unless['dotfiles']['enable_submodules'] = false
+node.set_unless['dotfiles']['shell'] = '/bin/zsh'
 
-git '/home/vagrant/.dotfiles' do
+git 'dotfiles' do
+  destination '/home/vagrant/.dotfiles'
   repository node['dotfiles']['repository']
   reference 'master'
   action :sync
   user 'vagrant'
   group 'vagrant'
   enable_submodules node['dotfiles']['enable_submodules']
+end
+
+user 'vagrant' do
+  action :modify
+  shell node['dotfiles']['shell']
+end
+
+execute 'install-links' do
+  command '/home/vagrant/.dotfiles/install-links.sh'
+  user 'vagrant'
+  group 'vagrant'
+  environment ({'HOME' => '/home/vagrant'})
+  action :nothing
+  subscribes :run, resources(:git => 'dotfiles')
+  only_if { File.exists?('/home/vagrant/.dotfiles/install-links.sh') }
 end

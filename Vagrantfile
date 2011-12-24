@@ -10,7 +10,8 @@ Vagrant::Config.run do |config|
     chef.json.merge!({
       :dotfiles => {
         :repository => "git://github.com/elasticdog/dotfiles.git",
-        :enable_submodules => true
+        :enable_submodules => true,
+        :shell => '/bin/zsh'
       }
     })
   end
