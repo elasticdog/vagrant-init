@@ -24,6 +24,8 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+include_recipe 'rbenv'
+
 %w{ bundler rake }.each do |gem|
   gem_package gem do
     options '--no-ri --no-rdoc'
