@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: vagrant_main
+# Cookbook Name:: ctags
 # Recipe:: default
 #
 # Copyright 2011, Aaron Bull Schaefer
@@ -24,13 +24,9 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-include_recipe 'ack'
-include_recipe 'ctags'
-include_recipe 'dotfiles'
-include_recipe 'git'
-include_recipe 'htop'
-include_recipe 'mercurial'
-include_recipe 'tmux'
-include_recipe 'rbenv'
-include_recipe 'vim'
-include_recipe 'zsh'
+case node[:platform]
+when 'debian', 'ubuntu'
+  package 'exuberant-ctags'
+else
+  package 'ctags'
+end
