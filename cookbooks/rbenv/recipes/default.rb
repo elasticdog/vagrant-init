@@ -44,7 +44,8 @@ git 'ruby-build' do
   group 'vagrant'
 end
 
-exec 'install-ruby-build' do
+execute 'install-ruby-build' do
+  cwd '/home/vagrant/.ruby-build'
   command '/home/vagrant/.ruby-build/install.sh'
   creates '/usr/local/bin/ruby-build'
 end
