@@ -26,7 +26,6 @@
 
 include_recipe 'ack'
 include_recipe 'dotfiles'
-include_recipe 'gems'
 include_recipe 'git'
 include_recipe 'htop'
 include_recipe 'mercurial'
