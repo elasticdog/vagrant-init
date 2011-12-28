@@ -15,5 +15,7 @@ execute "create symlink" do
       command "ln -nsf /usr/bin/ack-grep #{node[:ack][:symlink_as]}"
       creates "#{node[:ack][:symlink_as]}"
     end
+  else
+    action :nothing
   end
 end
