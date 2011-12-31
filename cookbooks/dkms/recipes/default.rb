@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: vagrant_main
+# Cookbook Name:: dkms
 # Recipe:: default
 #
 # Copyright 2011, Aaron Bull Schaefer
@@ -24,20 +24,4 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-# sync package database
-include_recipe 'package_sync'
-
-include_recipe 'ack'
-include_recipe 'ctags'
-include_recipe 'curl'
-include_recipe 'dkms'
-include_recipe 'dotfiles'
-include_recipe 'git'
-include_recipe 'htop'
-include_recipe 'lsof'
-include_recipe 'mercurial'
-include_recipe 'tmux'
-include_recipe 'tree'
-include_recipe 'rbenv'
-include_recipe 'vim'
-include_recipe 'zsh'
+package 'dkms'

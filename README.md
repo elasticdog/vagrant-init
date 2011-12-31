@@ -12,6 +12,7 @@ The installed packages include:
 * ack
 * ctags
 * curl
+* dkms
 * git
 * htop
 * lsof
@@ -23,7 +24,11 @@ The installed packages include:
 * zsh
 
 Many of these come directly from the [Opscode Community Cookbooks](http://community.opscode.com/cookbooks)
-and were installed using the [knife cookbook site commands](http://wiki.opscode.com/display/chef/Managing+Cookbooks+With+Knife#ManagingCookbooksWithKnife-CookbookSite).
+and were installed using the
+[knife cookbook site commands](http://wiki.opscode.com/display/chef/Managing+Cookbooks+With+Knife#ManagingCookbooksWithKnife-CookbookSite).
+By including Dynamic Kernel Module Support (DKMS), VirtualBox Guest
+Additions should automatically rebuild themselves whenever the kernel is
+updated.
 
 Usage
 =====
