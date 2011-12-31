@@ -92,6 +92,28 @@ The _rbenv_ installation is specific to the `vagrant` user (it is **not**
 system-wide), so you may have to adjust your `$PATH` environment variable
 to include `${HOME}/.rbenv/bin` when using your own dotfiles.
 
+Bugs
+====
+
+There's currently an
+[issue with](https://forums.virtualbox.org/viewtopic.php?f=1&t=46808#p211449)
+the VirtualBox Guest Additions compiling via DKMS for CentOS 6.2. If you
+update your kernel inside the VM and then attempt to run `vagrant reload`,
+it won't be able to mount the Chef cookbooks properly, and the provisioner
+will fail. Manually recompiling the Guest Additions will fix it, so for
+now you have to perform the following:
+
+      [vm] $ sudo yum update kernel
+      [vm] $ exit
+    [host] $ vagrant reload
+
+...this should fail to provision, but the VM will still boot up, so:
+
+    [host] $ vagrant ssh
+      [vm] $ sudo /etc/init.d/vboxadd setup
+      [vm] $ exit
+    [host] $ vagrant reload
+
 License
 =======
 
